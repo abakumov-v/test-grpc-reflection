@@ -10,7 +10,7 @@ public class Startup
     {
         services.AddCodeFirstGrpc();
         // services.TryAddSingleton(BinderConfiguration.Create(binder: new ServiceBinderWithServiceResolutionFromServiceCollection(services)));
-        // services.AddCodeFirstGrpcReflection();
+        services.AddCodeFirstGrpcReflection();
     }
 
     public void Configure(
@@ -22,7 +22,7 @@ public class Startup
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapGrpcService<TestService>();
-            // endpoints.MapCodeFirstGrpcReflectionService();
+            endpoints.MapCodeFirstGrpcReflectionService();
         });
     }
 }
